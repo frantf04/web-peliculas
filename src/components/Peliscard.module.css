@@ -1,0 +1,26 @@
+.peli_card{
+  list-style: none;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+
+}
+
+.peli_img{
+  width: 230px;
+  border-radius: 10px;
+  background: azure;
+}
+
+.peli_card:hover{
+  transform: scale(1.04);
+
+}
+
+@media screen and (max-width:520px){
+  .peli_img{
+    width: 90%;
+    height: auto;
+    
+  }
+}

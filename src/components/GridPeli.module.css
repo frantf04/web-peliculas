@@ -1,0 +1,14 @@
+.grid_pelis{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 40px;
+  padding:40px 10px;
+  justify-content: center;
+}
+
+@media screen and (max-width:520px){
+  .grid_pelis{
+    grid-template-columns: 100%;
+    justify-content:center;
+  }
+}
