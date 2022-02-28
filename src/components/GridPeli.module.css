@@ -6,6 +6,28 @@
   justify-content: center;
 }
 
+
+.btn_container{
+  padding:2rem 1rem;
+  text-align: center;
+  background: #000;
+}
+.btn_container button{
+  padding: .7rem 1.5rem;
+  background: rgb(39, 200, 39);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 0 1rem;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+
+}
+button:active{
+  transform:scale(.98);
+}
+
 @media screen and (max-width:520px){
   .grid_pelis{
     grid-template-columns: 100%;
