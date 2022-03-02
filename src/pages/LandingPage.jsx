@@ -1,8 +1,8 @@
 import GridPeli from "../components/GridPeli";
 
 
-function LandingPage({setTitu}) {
-  return <GridPeli setTitu={setTitu} />;
+function LandingPage() {
+  return <GridPeli />;
 }
 
 export default LandingPage;

@@ -15,7 +15,7 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
-            <Route exact path="/peli/:peliId" element={<PeliDetalles />} />
+            <Route exact path="/movie/:peliId" element={<PeliDetalles />} />
             <Route path="*" element={<div>Error: 404 - Not found</div>} />
           </Routes>
         </main>

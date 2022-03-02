@@ -16,19 +16,22 @@ function PeliDetalles() {
     return null;
   }
 
-  const imgUrl = `https://image.tmdb.org/t/p/w500${peli.backdrop_path}`;
+  const imgUrl = `https://image.tmdb.org/t/p/w500${peli.poster_path}`;
   return (
     <div className={styles.contenedor_detalles}>
-      <img className={styles.col} src={imgUrl} alt={peli.title} />
-      <div className={styles.col}>
-        <p>
-          <strong>Title:</strong> {peli.title}
+      <div className={styles.img}>
+      <img  src={imgUrl} alt={peli.title} />
+      </div>
+      <div className={styles.textContainer}>
+        <p className={styles.titulo}>
+          {peli.title} ({peli.release_date.substring(0,4)})
         </p>
         <p>
-          <strong>Genres: </strong>
-          {peli.genres.map((genre) => genre.name).join(', ')}
+          {peli.release_date.split('-').reverse().join('/')}
+          <li>{peli.genres.map((genre) => genre.name).join(', ')}</li>
         </p>
         <p>
+          <p>{Math.round(peli.vote_average*100).toString().substring(0,2)}%</p>
           <strong>Description:</strong> {peli.overview}
         </p>
       </div>
