@@ -1,6 +1,9 @@
 *{
   transition: all .1s;
 }
+html{
+  overflow-x: hidden;
+}
 html, body {
 
   height: 100%;
@@ -14,7 +17,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #000;
+  background: #020b0c;
   color: #fff;
 }
 
@@ -35,7 +38,12 @@ footer{
   display: flex;
   justify-content:center;
   align-items:center;
-  background: #1d1d1d;
+  /* background: #1d1d1d; */
   position: relative;
   bottom: 0;
+}
+li{
+  list-style: none;
+  display: inline;
+  margin: 0 .5rem;
 }

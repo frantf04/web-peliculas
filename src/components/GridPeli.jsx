@@ -3,7 +3,7 @@ import styles from "./GridPeli.module.css";
 import Peliscard from "./Peliscard";
 // import { get } from "../utils/httpClient";
 
-function GridPeli() {
+function GridPeli({setTablaPelis,pelis,setPelis}) {
   const [pagina, setPagina] = useState(1)
   const URL_API = "https://api.themoviedb.org/3/movie/popular?";
   const API_key = "api_key=e3b363ce913a40aa0545b00a3e4522ac";
@@ -20,24 +20,23 @@ function GridPeli() {
     }
   }
 
-  const [pelis, setPelis] = useState();
   useEffect(() => {
     fetch(`${URL_API}${API_key}&page=${pagina}&language=es-US`)
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data.results);
-        setPelis(
-          data.results.map((peli) => {
-            return <Peliscard key={peli.id} peli={peli} />
-          })
-
-        );
+      .then(res => res.json())
+      .then((datos) => {
+        // console.log(datos.results);
+        setTablaPelis(datos.results)
+        setPelis(datos.results);
       });
-  }, [pagina]);
+    
+    
+  }, [pagina,setTablaPelis, setPelis]);
   return (
     <div>
       <ul className={styles.grid_pelis}>
-        {pelis}
+        {pelis.map(peli => {
+         return <Peliscard key={peli.id} peli={peli}/>
+        })}
       </ul>
       <div className={styles.btn_container}>
         <button onClick={anterior}>anterior</button>
@@ -47,5 +46,6 @@ function GridPeli() {
     </div>
   );
 }
+
 
 export default GridPeli;

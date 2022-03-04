@@ -20,19 +20,22 @@ function PeliDetalles() {
   return (
     <div className={styles.contenedor_detalles}>
       <div className={styles.img}>
-      <img  src={imgUrl} alt={peli.title} />
+        <img src={imgUrl} alt={peli.title} />
       </div>
       <div className={styles.textContainer}>
-        <p className={styles.titulo}>
-          {peli.title} ({peli.release_date.substring(0,4)})
+        <h2 className={styles.titulo}>
+          {peli.title} ({peli.release_date.substring(0, 4)})
+        </h2>
+        <p >
+          {peli.release_date.split('-').reverse().join('/')}<li>{peli.genres.map((genre) => genre.name).join(', ')}</li>
+        </p>
+        <p className={styles.score}>
+          {Math.round(peli.vote_average * 100).toString().substring(0, 2)}%
         </p>
         <p>
-          {peli.release_date.split('-').reverse().join('/')}
-          <li>{peli.genres.map((genre) => genre.name).join(', ')}</li>
-        </p>
-        <p>
-          <p>{Math.round(peli.vote_average*100).toString().substring(0,2)}%</p>
-          <strong>Description:</strong> {peli.overview}
+          <strong>Description</strong>
+          <br />
+          {peli.overview}
         </p>
       </div>
     </div>
