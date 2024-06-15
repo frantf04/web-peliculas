@@ -3,8 +3,7 @@ import styles from "./GridPeli.module.css";
 import Peliscard from "./Peliscard";
 // import { get } from "../utils/httpClient";
 
-function GridPeli({setTablaPelis,pelis,setPelis}) {
-  const [pagina, setPagina] = useState(1)
+function GridPeli({setTablaPelis,pelis,setPelis, pagina, setPagina}) {
   const URL_API = "https://api.themoviedb.org/3/movie/popular?";
   const API_key = "api_key=e3b363ce913a40aa0545b00a3e4522ac";
 
