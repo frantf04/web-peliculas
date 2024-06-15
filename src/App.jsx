@@ -32,12 +32,12 @@ function App() {
           <h3>Johan Olmos</h3>
           <input onChange={handdleChange} placeholder="Buscar por nombre" value={busqueda} type="search" className={styles.barraBusqueda} />
         </header>
-        <Link to=`/page/${pagina}`>
+        <Link to="/page/:page/">
           <h1 className={styles.titulo}>movies</h1>
         </Link>
         <main className={styles.main}>
           <Routes>
-            <Route exact path=`/page/${pagina}` element={<LandingPage pagina={pagina} setPagina={setPagina} tablaPelis={tablaPelis} setTablaPelis={setTablaPelis} pelis={pelis} setPelis={setPelis} />} />
+            <Route exact path="/page/:page" element={<LandingPage pagina={pagina} setPagina={setPagina} tablaPelis={tablaPelis} setTablaPelis={setTablaPelis} pelis={pelis} setPelis={setPelis} />} />
             <Route exact path="/movie/:peliId" element={<PeliDetalles />} />
             <Route path="*" element={<div>Error: 404 - Not found</div>} />
           </Routes>
