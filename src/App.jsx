@@ -8,6 +8,7 @@ function App() {
   const [busqueda, setBusqueda] = useState("");
   const [tablaPelis, setTablaPelis] = useState([])
   const [pelis, setPelis] = useState([]);
+  const [pagina, setPagina] = useState(1)
 
   const handdleChange = (e) => {
     setBusqueda(e.target.value);
@@ -19,9 +20,7 @@ function App() {
     let resultadoBusqueda = tablaPelis.filter((pelicula) => {
       if (pelicula.title.toString().toLowerCase().split('-').join('').includes(terminoBusqueda.toLowerCase()) || 
         pelicula.title.toString().toLowerCase().split('-').join(' ').includes(terminoBusqueda.toLowerCase()) || 
-        pelicula.title.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
-          return pelicula;
-        }
+        pelicula.title.toString().toLowerCase().includes(terminoBusq 
       })
     setPelis(resultadoBusqueda)
   }
@@ -33,12 +32,12 @@ function App() {
           <h3>Johan Olmos</h3>
           <input onChange={handdleChange} placeholder="Buscar por nombre" value={busqueda} type="search" className={styles.barraBusqueda} />
         </header>
-        <Link to="/">
+        <Link to="/page/{pagina}">
           <h1 className={styles.titulo}>movies</h1>
         </Link>
         <main className={styles.main}>
           <Routes>
-            <Route exact path="/" element={<LandingPage tablaPelis={tablaPelis} setTablaPelis={setTablaPelis} pelis={pelis} setPelis={setPelis} />} />
+            <Route exact path="/page/{pagina}" element={<LandingPage pagina={pagina} setPagina={setPagina} tablaPelis={tablaPelis} setTablaPelis={setTablaPelis} pelis={pelis} setPelis={setPelis} />} />
             <Route exact path="/movie/:peliId" element={<PeliDetalles />} />
             <Route path="*" element={<div>Error: 404 - Not found</div>} />
           </Routes>
